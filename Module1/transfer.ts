@@ -8,6 +8,7 @@ import {
 import "dotenv/config"
 import { getKeypairFromEnvironment } from "@solana-developers/helpers";
 
+// Check if destination wallet address is provided as a command line argument
 const suppliedToPubkey = process.argv[2] || null;
 
 if (!suppliedToPubkey) {
@@ -17,13 +18,13 @@ if (!suppliedToPubkey) {
 
 const senderKeypair = getKeypairFromEnvironment("SECRET_KEY");
 
-console.log(`suppliedToPubkey: ${suppliedToPubkey}`);
-
 const toPubkey = new PublicKey(suppliedToPubkey);
 
 const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 
-console.log(`✅ Loaded our own keypair, the destination public key, and connected to Solana`);
+console.log(
+    `✅ Loaded our own keypair, the destination public key, and connected to Solana`
+);
 
 const transaction = new Transaction();
 
