@@ -8,7 +8,6 @@ import {
 import "dotenv/config"
 import { getKeypairFromEnvironment } from "@solana-developers/helpers";
 
-// Check if destination wallet address is provided as a command line argument
 const suppliedToPubkey = process.argv[2] || null;
 
 if (!suppliedToPubkey) {
